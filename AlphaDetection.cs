@@ -1,44 +1,33 @@
-﻿#if UNITY_EDITOR
-using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
+using UnityEditor;
+using UnityEditor.AssetImporters;
 
-public class ImageAlphaDetection : AssetPostprocessor
+public class ImageAlphaDetection : MonoBehaviour
 {
-    // This method is called by Unity whenever an asset is imported
-    private async void OnPostprocessTexture(Texture2D texture)
-    {
-        // Check if the imported texture has alpha transparency asynchronously
-        bool hasAlpha = await Task.Run(() => TextureHasAlpha(texture));
-
-        // Set the "Alpha Is Transparent" property based on the alpha transparency
-        TextureImporter textureImporter = assetImporter as TextureImporter;
-        if (textureImporter != null)
+    void Awake()
+{
+        // Check if the Texture2D has transparency and enable the alpha transparency setting
+Texture2D texture = (Texture2D)GetComponent<MeshRenderer>().material.mainTexture;
+        if (TextureHasAlpha(texture))
         {
-            textureImporter.alphaIsTransparency = hasAlpha;
-            textureImporter.isReadable = true;
-            textureImporter.streamingMipmaps = true;
-
-            Debug.Log($"Alpha Is Transparent set to {hasAlpha}, Read/Write Enabled set to true, and Streaming MipMaps set to true for texture: {textureImporter.assetPath}");
-
-            AssetDatabase.ImportAsset(textureImporter.assetPath);
+            TextureImporter textureImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(texture)) as TextureImporter;
+            textureImporter.textureType = TextureImporterType.Default;
+            textureImporter.alphaIsTransparency = true;
+            textureImporter.alphaSource = TextureImporterAlphaSource.FromInput;
+            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(texture));
         }
     }
 
-    // Check if the texture has alpha transparency
-    private bool TextureHasAlpha(Texture2D texture)
-    {
-        Color[] pixels = texture.GetPixels();
-
+    bool TextureHasAlpha(Texture2D texture)
+{
+        Color32[] pixels = texture.GetPixels32();
         for (int i = 0; i < pixels.Length; i++)
         {
-            if (pixels[i].a < 1f)
-            {
+            if (pixels[i].a != 255)
                 return true;
-            }
         }
-
         return false;
     }
 }
-#endif
