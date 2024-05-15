@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.AssetImporters;
+using UnityEngine;
 
-public class ImageAlphaDetection : MonoBehaviour
+public class ImageAlphaDetection : AssetPostprocessor
 {
-    void Awake()
+    // This method is called by Unity whenever an asset is imported
+private void OnPostprocessTexture(Texture2D texture)
 {
-        // Check if the Texture2D has transparency and enable the alpha transparency setting
-Texture2D texture = (Texture2D)GetComponent<MeshRenderer>().material.mainTexture;
-        if (TextureHasAlpha(texture))
+        // Check if the imported texture has alpha transparency
+bool hasAlpha = TextureHasAlpha(texture);
+
+        // Set the "Alpha Is Transparent" property based on the alpha transparency
+TextureImporter textureImporter = assetImporter as TextureImporter;
+        if (textureImporter != null)
         {
-            TextureImporter textureImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(texture)) as TextureImporter;
             textureImporter.textureType = TextureImporterType.Default;
-            textureImporter.alphaIsTransparency = true;
-            textureImporter.alphaSource = TextureImporterAlphaSource.FromInput;
-            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(texture));
+            textureImporter.alphaIsTransparency = hasAlpha;
+            textureImporter.isReadable = true;
+            textureImporter.streamingMipmaps = true;
+
+            Debug.Log($"Alpha Is Transparent set to {hasAlpha}, Read/Write Enabled set to true, and Streaming MipMaps set to true for texture: {textureImporter.assetPath}");
+
+            AssetDatabase.ImportAsset(textureImporter.assetPath, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
         }
     }
 
@@ -31,3 +36,4 @@ Texture2D texture = (Texture2D)GetComponent<MeshRenderer>().material.mainTexture
         return false;
     }
 }
+#endif
