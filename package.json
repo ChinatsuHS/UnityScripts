@@ -1,0 +1,11 @@
+{
+  "name": "com.chinatsuhs.unityscripts",
+  "version": "1.0.0",
+  "displayName": "Chinatsu's Unity Scripts",
+  "description": "A collection of standalone C# scripts for Unity/VRChat.",
+  "unity": "2022.3.22f1",
+  "author": {
+    "name": "ChinatsuHS",
+    "email": "fschins@gmail.com"
+  }
+}
