@@ -20,10 +20,7 @@ A collection of lightweight, high-utility editor scripts designed to automate te
   * Automatically enables **Read/Write** access.
   * Automatically extracts embedded materials.
 * *Note: Due to occasional quirks with Unity's internal bone auto-mapping, manual verification of the rig configuration is still recommended for complex armatures.*
-
-### 🎨 AlphaDetection
-* **The Solution:** Automatically inspects imported `.png` textures with Read/Write enabled. If an alpha channel is detected, it instantly toggles the **Alpha Is Transparency** flag to prevent edge artifacts and rendering issues.
-
+* 
 ### **Where to place**
 Download them seperate from releases and place them in your assets/editor folder of your project.
 
