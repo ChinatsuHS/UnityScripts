@@ -24,4 +24,6 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 ### 🎨 AlphaDetection
 * **The Solution:** Automatically inspects imported `.png` textures with Read/Write enabled. If an alpha channel is detected, it instantly toggles the **Alpha Is Transparency** flag to prevent edge artifacts and rendering issues.
 
----
+### **Where to place**
+Download them seperate from releases and place them in your assets/editor folder of your project. 
+or download the full pack and extract them in your assets/editor folder of your project.
