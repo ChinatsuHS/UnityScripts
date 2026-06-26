@@ -27,3 +27,5 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 ### **Where to place**
 Download them seperate from releases and place them in your assets/editor folder of your project. 
 or download the full pack and extract them in your assets/editor folder of your project.
+
+/// NOTE: if you lots of textures and fbx files opening your project after adding the scripts can take a while as it will reprocess all of them (only once as a new import of the files).
