@@ -17,6 +17,7 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 ### 🦴 Physbone tool
 * **The Problem:** Having to manually enter or use sliders to control size and positions of physbone components can be a hassle.
 * **The Solution:** This tool adds position,rotation and scaling gizmo's to the scene view for the physbone and physbone components that let's you do the positioning, rotation and scaling in the scene view.
+Note: Because this hides the default transform tool while a PhysBone or PhysBone Collider is selected, if you ever need to move the actual GameObject transform instead of the component's internal offset, you will need to adjust the values manually in the Inspector's Transform block.
 
 ### 📦 FBX Import Automation (`fbximport`)
 * **The Solution:** Streamlines the raw asset pipeline by hooks into Unity's asset importer. 
