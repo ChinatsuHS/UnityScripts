@@ -26,6 +26,6 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 * *Note: Due to occasional quirks with Unity's internal bone auto-mapping, manual verification of the rig configuration is still recommended for complex armatures.*
 * 
 ### **Where to place**
-Download them seperate from releases and place them in your assets/editor folder of your project.
+Download the repository as zip and put the required scripts in Assets/Editor.
 
 /// NOTE: if you have lots of textures and fbx files opening your project after adding the scripts can take a while as it will reprocess all of them (only once as a new import of the files).
