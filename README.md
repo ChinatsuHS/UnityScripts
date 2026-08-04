@@ -29,4 +29,5 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 Download the repository as zip and put the required scripts in Assets/Editor.
 
 /// NOTE: if you have lots of textures and fbx files opening your project after adding the scripts can take a while as it will reprocess all of them (only once as a new import of the files).
+
 /// Bugs can still occur especially if similar scripts and tools already exist in the project or changes to the sdk happen... make sure to report the in Issues \\\
