@@ -26,7 +26,7 @@ Note: Because this hides the default transform tool while a PhysBone or PhysBone
   * Automatically enables **Read/Write** access.
   * Automatically extracts embedded materials.
 * *Note: Due to occasional quirks with Unity's internal bone auto-mapping, manual verification of the rig configuration is still recommended for complex armatures.*
-* 
+
 ### **Where to place**
 Download the repository as zip and put the required scripts in Assets/Editor.
 
