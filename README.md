@@ -14,6 +14,10 @@ A collection of lightweight, high-utility editor scripts designed to automate te
 * **The Problem:** Manually configuring rotation and twist constraints bone-by-bone is tedious and repetitive.
 * **The Solution:** Programmatically detects and assigns Twistbone constraints to all relevant joints with a single click directly from the Transform inspector.
 
+### 🦴 Physbone tool
+* **The Problem:** Having to manually enter or use sliders to control size and positions of physbone components can be a hassle.
+* **The Solution:** This tool adds position,rotation and scaling gizmo's to the scene view for the physbone and physbone components that let's you do the positioning, rotation and scaling in the scene view.
+
 ### 📦 FBX Import Automation (`fbximport`)
 * **The Solution:** Streamlines the raw asset pipeline by hooks into Unity's asset importer. 
   * Automatically sets the animation type to **Humanoid** if a compatible armature structure is detected.
